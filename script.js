@@ -1,17 +1,25 @@
 // Mobile hamburger menu
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
+const menuOverlay = document.getElementById('menu-overlay');
 
-hamburger.addEventListener('click', () => {
+function toggleMenu() {
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
-});
+    menuOverlay.classList.toggle('active');
+}
+
+function closeMenu() {
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('active');
+    menuOverlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', toggleMenu);
+menuOverlay.addEventListener('click', closeMenu);
 
 navMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    });
+    link.addEventListener('click', closeMenu);
 });
 
 // Floating particles background
