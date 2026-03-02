@@ -97,6 +97,7 @@ body {
     justify-content: center;
     text-align: center;
     overflow: hidden;
+    padding-bottom: 40px;
 }
 .hero-content {
     z-index: 1;
