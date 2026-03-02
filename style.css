@@ -1,0 +1,692 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Anton", sans-serif;
+  background-color: #000000;
+  line-height: 1.6;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+}
+.header {
+  background-color: rgba(0, 0, 0, 0.95);
+  animation: slideFromTop 0.8s ease forwards;
+}
+@keyframes slideFromTop {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.logo-group {
+  display: flex;
+  align-items: center;
+}
+.header nav img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+.header nav ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  align-items: top;
+  gap: 1rem;
+}
+.header nav ul li {
+  font-family: "Anton", sans-serif;
+  margin-left: 2rem;
+}
+.header nav ul li a {
+    letter-spacing: 0.1rem;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+.header nav ul li a {
+    transition: color 0.3s ease;
+}
+.header nav ul li a:hover {
+    color: #ff4d4d;
+}
+.join-now-btn {
+  background-color: #ff4d4d;
+  color: #000000;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 7px;
+  font-weight: bold;
+}
+.join-now-btn:hover {
+  background-color: #e04343;
+}
+/* Hero Section */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+.hero-content {
+    z-index: 1;
+    animation: heroFadeIn 1.2s ease forwards;
+    opacity: 0;
+}
+@keyframes heroFadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.hero-tagline {
+    font-family: "National Park", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.5rem;
+    color: #ff4d4d;
+    margin-bottom: 1.5rem;
+    animation: taglineSlide 1s 0.3s ease forwards;
+    opacity: 0;
+}
+@keyframes taglineSlide {
+    from { opacity: 0; letter-spacing: 1.5rem; }
+    to { opacity: 1; letter-spacing: 0.5rem; }
+}
+.hero-title {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+}
+.hero-line {
+    font-size: 8rem;
+    color: #ffffff;
+    animation: lineReveal 0.8s ease forwards;
+    opacity: 0;
+    transform: translateX(-50px);
+}
+.hero-line:nth-child(1) { animation-delay: 0.5s; }
+.hero-line:nth-child(2) { animation-delay: 0.7s; }
+.hero-line:nth-child(3) { animation-delay: 0.9s; }
+@keyframes lineReveal {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+.hero-outline {
+    color: transparent;
+    -webkit-text-stroke: 3px #ff4d4d;
+    text-shadow: 0 0 40px rgba(255, 77, 77, 0.3);
+}
+.hero-typewriter {
+    font-family: "National Park", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #cccccc;
+    min-height: 2rem;
+    margin-bottom: 2.5rem;
+    border-right: 2px solid #ff4d4d;
+    display: inline-block;
+    padding-right: 5px;
+    animation: blink 0.7s step-end infinite;
+}
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    animation: heroFadeIn 1s 1.8s ease forwards;
+    opacity: 0;
+}
+.hero-btn {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.15rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.hero-btn-primary {
+    background-color: #ff4d4d;
+    color: #000000;
+    border: 2px solid #ff4d4d;
+    box-shadow: 0 0 20px rgba(255, 77, 77, 0.3);
+}
+.hero-btn-primary:hover {
+    background-color: transparent;
+    color: #ff4d4d;
+    box-shadow: 0 0 35px rgba(255, 77, 77, 0.5);
+}
+.hero-btn-outline {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+.hero-btn-outline:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Stats Section */
+.stats-section {
+    padding: 4rem 2rem;
+    background-color: transparent;
+}
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.stat-card {
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 2px solid rgba(224, 67, 67, 0.3);
+    border-radius: 15px;
+    padding: 2rem 1rem;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: #e04343;
+}
+.stat-number {
+    font-size: 3.5rem;
+    color: #ff4d4d;
+    text-shadow: 0 0 20px rgba(255, 77, 77, 0.4);
+}
+.stat-label {
+    font-family: "National Park", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #cccccc;
+    margin-top: 0.5rem;
+    letter-spacing: 0.1rem;
+}
+
+/* Services Section */
+.services-section {
+    padding: 4rem 2rem;
+    background-color: transparent;
+}
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.service-card {
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 2px solid rgba(224, 67, 67, 0.3);
+    border-radius: 15px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(224, 67, 67, 0.4);
+    border-color: #e04343;
+}
+.service-icon {
+    font-size: 3rem;
+    color: #ff4d4d;
+    margin-bottom: 1rem;
+}
+.service-card h3 {
+    font-size: 1.5rem;
+    color: #ff4d4d;
+    letter-spacing: 0.2rem;
+    margin-bottom: 0.8rem;
+}
+.service-card p {
+    font-family: "National Park", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #cccccc;
+}
+
+/* Products Section */
+.products-section {
+    margin-top: 3rem;
+    padding: 2rem;
+    text-align: center;
+    background-color: transparent;
+}
+.products-title {
+    font-size: 3rem;
+    color: #e04343;
+    margin-bottom: 2rem;
+}
+.slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 15px;
+    padding: 1rem;
+}
+.slider {
+    overflow: hidden;
+    width: 100%;
+    border-radius: 15px;
+}
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+.slide {
+    min-width: 100%;
+    padding: 1rem;
+    text-align: center;
+}
+.slide img {
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+    border-radius: 15px;
+    background-color: transparent;
+    animation: floatProduct 3s ease-in-out infinite;
+}
+@keyframes floatProduct {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+.slide h3 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-top: 0.8rem;
+    letter-spacing: 0.3rem;
+}
+.slide p {
+    font-size: 1.2rem;
+    color: #ff4d4d;
+    font-family: "National Park", sans-serif;
+    font-weight: 700;
+}
+.slider-btn {
+    background-color: #e04343;
+    color: #000000;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    flex-shrink: 0;
+}
+.slider-btn:hover {
+    background-color: #ff4d4d;
+    transform: scale(1.1);
+}
+
+/* Shared section title */
+.section-title {
+    font-size: 3rem;
+    color: #e04343;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Why Choose Us */
+.why-section {
+    padding: 4rem 2rem;
+    background-color: transparent;
+}
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.why-card {
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 2px solid #e04343;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.why-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(224, 67, 67, 0.4);
+}
+.why-card h3 {
+    font-size: 1.5rem;
+    color: #ff4d4d;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.2rem;
+}
+.why-card p {
+    font-family: "National Park", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #cccccc;
+}
+
+/* Testimonials */
+.testimonials-section {
+    padding: 4rem 2rem;
+    background-color: transparent;
+}
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.testimonial-card {
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(224, 67, 67, 0.3);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+.testimonial-text {
+    font-family: "National Park", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-style: italic;
+    color: #cccccc;
+    margin-bottom: 1rem;
+}
+.testimonial-card h4 {
+    color: #ff4d4d;
+    font-size: 1.1rem;
+}
+
+/* Pricing */
+.pricing-section {
+    padding: 4rem 2rem;
+    background-color: transparent;
+}
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: center;
+}
+.pricing-card {
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 2px solid rgba(224, 67, 67, 0.3);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.pricing-card.featured {
+    border-color: #e04343;
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(224, 67, 67, 0.3);
+}
+.pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(224, 67, 67, 0.4);
+}
+.pricing-card.featured:hover {
+    transform: scale(1.05) translateY(-5px);
+}
+.pricing-card h3 {
+    font-size: 1.8rem;
+    color: #ff4d4d;
+    letter-spacing: 0.3rem;
+    margin-bottom: 1rem;
+}
+.price {
+    font-size: 3.5rem;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+}
+.price span {
+    font-size: 1.2rem;
+    color: #999999;
+}
+.pricing-card ul {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+.pricing-card ul li {
+    font-family: "National Park", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #cccccc;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.pricing-btn {
+    background-color: #e04343;
+    color: #000000;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.pricing-btn:hover {
+    background-color: #ff4d4d;
+}
+
+/* Contact */
+.contact-section {
+    padding: 4rem 2rem;
+    background-color: transparent;
+}
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.contact-form input,
+.contact-form textarea {
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(224, 67, 67, 0.3);
+    border-radius: 10px;
+    padding: 1rem;
+    color: #ffffff;
+    font-family: "National Park", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #e04343;
+}
+.contact-btn {
+    background-color: #e04343;
+    color: #000000;
+    border: none;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.contact-btn:hover {
+    background-color: #ff4d4d;
+}
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.contact-info h3 {
+    font-size: 1.5rem;
+    color: #ff4d4d;
+    letter-spacing: 0.2rem;
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+}
+.contact-info h3:first-child {
+    margin-top: 0;
+}
+.contact-info p {
+    font-family: "National Park", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #cccccc;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 100;
+}
+.hamburger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    /* Nav */
+    .hamburger { display: flex; }
+    .header nav { padding: 0 1rem; }
+    .header nav img { width: 80px; height: 80px; }
+    .header nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.98);
+        padding: 2rem 0;
+        gap: 0;
+        text-align: center;
+    }
+    .header nav ul.active { display: flex; }
+    .header nav ul li { margin: 0; padding: 1rem 0; }
+    .header nav ul li a { font-size: 1.2rem; }
+    .join-now-btn { display: none; }
+    .header { position: relative; }
+
+    /* Hero */
+    .hero { padding: 0 1rem; }
+    .hero-line { font-size: 4rem; }
+    .hero-outline { -webkit-text-stroke: 2px #ff4d4d; }
+    .hero-tagline { font-size: 0.9rem; letter-spacing: 0.3rem; }
+    .hero-typewriter { font-size: 1rem; }
+    .hero-buttons { flex-direction: column; align-items: center; gap: 1rem; }
+    .hero-btn { padding: 0.9rem 2rem; font-size: 0.9rem; }
+
+    /* Stats */
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .stat-number { font-size: 2.5rem; }
+
+    /* Services */
+    .services-grid { grid-template-columns: 1fr; }
+
+    /* Products */
+    .slider-container { max-width: 100%; }
+    .slide img { height: 250px; }
+    .slider-btn { width: 40px; height: 40px; font-size: 1.2rem; }
+
+    /* Section titles */
+    .section-title { font-size: 2rem; }
+    .products-title { font-size: 2rem; }
+
+    /* Why Choose Us */
+    .why-grid { grid-template-columns: 1fr; }
+
+    /* Testimonials */
+    .testimonials-grid { grid-template-columns: 1fr; }
+
+    /* Pricing */
+    .pricing-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .pricing-card.featured { transform: none; }
+    .pricing-card.featured:hover { transform: translateY(-5px); }
+
+    /* Contact */
+    .contact-container { grid-template-columns: 1fr; }
+    .contact-info { text-align: center; }
+    .contact-info h3 { margin-top: 2rem; }
+    .contact-info h3:first-child { margin-top: 0; }
+}
+
+@media (max-width: 480px) {
+    .hero-line { font-size: 3rem; }
+    .hero-tagline { font-size: 0.75rem; letter-spacing: 0.2rem; }
+    .stats-grid { grid-template-columns: 1fr; }
+    .stat-number { font-size: 2rem; }
+    .slide img { height: 200px; }
+    .price { font-size: 2.5rem; }
+}
