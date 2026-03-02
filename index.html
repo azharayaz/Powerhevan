@@ -28,7 +28,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <button class="join-now-btn">Join Now</button>
+        <button class="join-now-btn" data-modal="modal-join">Join Now</button>
       </nav>
     </header>
     <section id="home" class="hero">
@@ -41,8 +41,8 @@
         </h1>
         <p class="hero-typewriter" id="typewriter"></p>
         <div class="hero-buttons">
-          <a href="#contact" class="hero-btn hero-btn-primary">START YOUR JOURNEY</a>
-          <a href="#products" class="hero-btn hero-btn-outline">EXPLORE</a>
+          <a href="#" class="hero-btn hero-btn-primary" data-modal="modal-journey">START YOUR JOURNEY</a>
+          <a href="#" class="hero-btn hero-btn-outline" data-modal="modal-explore">EXPLORE</a>
         </div>
       </div>
     </section>
@@ -230,6 +230,83 @@
         </div>
       </div>
     </section>
+
+    <!-- Toast Notifications -->
+    <div class="toast toast-right" id="toast-join">
+      <h4>Thank You, <span id="toast-join-name"></span>!</h4>
+      <p id="toast-join-msg"></p>
+    </div>
+    <div class="toast toast-left" id="toast-journey">
+      <h4>See you soon, <span id="toast-journey-name"></span>!</h4>
+      <p id="toast-journey-msg"></p>
+    </div>
+
+    <!-- Modal Cards -->
+    <div class="modal-overlay" id="modal-overlay">
+      <!-- Join Now -->
+      <div class="modal-card" id="modal-join">
+        <button class="modal-close">&times;</button>
+        <h2>JOIN US TODAY</h2>
+        <p>Start your fitness journey with Power Haven Gym. Fill in your details and we'll get you started!</p>
+        <form class="modal-form">
+          <input type="text" placeholder="Full Name" required>
+          <input type="email" placeholder="Email Address" required>
+          <input type="tel" placeholder="Phone Number">
+          <select>
+            <option value="" disabled selected>Select a Plan</option>
+            <option value="basic">Basic - $19/mo</option>
+            <option value="pro">Pro - $39/mo</option>
+            <option value="elite">Elite - $59/mo</option>
+          </select>
+          <button type="submit" class="modal-submit">JOIN NOW</button>
+        </form>
+      </div>
+
+      <!-- Start Your Journey -->
+      <div class="modal-card" id="modal-journey">
+        <button class="modal-close">&times;</button>
+        <h2>START YOUR JOURNEY</h2>
+        <p>Take the first step towards a stronger you. Book a free consultation with our trainers.</p>
+        <form class="modal-form">
+          <input type="text" placeholder="Full Name" required>
+          <input type="email" placeholder="Email Address" required>
+          <input type="tel" placeholder="Phone Number">
+          <select>
+            <option value="" disabled selected>Your Goal</option>
+            <option value="weight-loss">Weight Loss</option>
+            <option value="muscle-gain">Muscle Gain</option>
+            <option value="endurance">Endurance</option>
+            <option value="general">General Fitness</option>
+          </select>
+          <button type="submit" class="modal-submit">BOOK CONSULTATION</button>
+        </form>
+      </div>
+
+      <!-- Explore -->
+      <div class="modal-card" id="modal-explore">
+        <button class="modal-close">&times;</button>
+        <h2>EXPLORE POWER HAVEN</h2>
+        <p>Discover what makes us the best gym in the city.</p>
+        <div class="explore-grid">
+          <a href="#products" class="explore-item">
+            <h3>PRODUCTS</h3>
+            <p>Browse our equipment</p>
+          </a>
+          <a href="#about" class="explore-item">
+            <h3>WHY US</h3>
+            <p>See our advantages</p>
+          </a>
+          <a href="#contact" class="explore-item">
+            <h3>CONTACT</h3>
+            <p>Get in touch</p>
+          </a>
+          <a href="#home" class="explore-item">
+            <h3>PRICING</h3>
+            <p>View membership plans</p>
+          </a>
+        </div>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>

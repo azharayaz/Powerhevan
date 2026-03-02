@@ -1,3 +1,23 @@
+// Sound effects
+const btnSound = new Audio('audio/button.mp3');
+const popupSound = new Audio('audio/pop up.wav');
+
+function playBtnSound() {
+    btnSound.currentTime = 0;
+    btnSound.play();
+}
+
+function playPopupSound() {
+    popupSound.currentTime = 0;
+    popupSound.play();
+}
+
+// Add click sound to all buttons and links
+document.addEventListener('click', (e) => {
+    const target = e.target.closest('button, .hero-btn, .slider-btn, .pricing-btn, .contact-btn, .explore-item, .header nav ul li a');
+    if (target) playBtnSound();
+});
+
 // Mobile hamburger menu
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
@@ -20,6 +40,97 @@ menuOverlay.addEventListener('click', closeMenu);
 
 navMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', closeMenu);
+});
+
+// Modal cards
+const modalOverlay = document.getElementById('modal-overlay');
+const modalCards = document.querySelectorAll('.modal-card');
+const modalTriggers = document.querySelectorAll('[data-modal]');
+const modalCloses = document.querySelectorAll('.modal-close');
+
+function openModal(modalId) {
+    modalCards.forEach(c => c.classList.remove('active'));
+    document.getElementById(modalId).classList.add('active');
+    modalOverlay.classList.add('active');
+}
+
+function closeModal() {
+    modalOverlay.classList.remove('active');
+    modalCards.forEach(c => c.classList.remove('active'));
+}
+
+modalTriggers.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeMenu();
+        openModal(btn.dataset.modal);
+    });
+});
+
+modalCloses.forEach(btn => {
+    btn.addEventListener('click', closeModal);
+});
+
+modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) closeModal();
+});
+
+// Close explore modal links and scroll
+document.querySelectorAll('.explore-item').forEach(item => {
+    item.addEventListener('click', () => {
+        closeModal();
+    });
+});
+
+// Toast notifications
+const toastJoin = document.getElementById('toast-join');
+const toastJourney = document.getElementById('toast-journey');
+
+function showToast(toastEl) {
+    toastEl.classList.add('show');
+    toastEl.classList.remove('hide');
+    playPopupSound();
+    setTimeout(() => {
+        toastEl.classList.remove('show');
+        toastEl.classList.add('hide');
+    }, 3500);
+}
+
+const goalMessages = {
+    'weight-loss': 'Your Weight Loss session is booked!',
+    'muscle-gain': 'Your Muscle Gain session is booked!',
+    'endurance': 'Your Endurance session is booked!',
+    'general': 'Your General Fitness session is booked!'
+};
+
+const planMessages = {
+    'basic': 'Welcome to Basic! Your fitness journey starts now.',
+    'pro': 'Great choice! Pro members get the full experience.',
+    'elite': 'Elite mode activated! You get everything we offer.'
+};
+
+// Join Now form
+document.getElementById('modal-join').querySelector('form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = e.target.querySelector('input[type="text"]').value.trim() || 'Champion';
+    const plan = e.target.querySelector('select').value;
+    document.getElementById('toast-join-name').textContent = name;
+    document.getElementById('toast-join-msg').textContent = planMessages[plan] || 'We will meet you in the gym!';
+    closeModal();
+    e.target.reset();
+    showToast(toastJoin);
+});
+
+// Start Your Journey form
+document.getElementById('modal-journey').querySelector('form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = e.target.querySelector('input[type="text"]').value.trim() || 'Champion';
+    const goal = e.target.querySelector('select').value;
+    document.getElementById('toast-journey-name').textContent = name;
+    document.getElementById('toast-journey-msg').textContent = goalMessages[goal] || 'Your session is booked!';
+    closeModal();
+    e.target.reset();
+    showToast(toastJourney);
 });
 
 // Floating particles background
