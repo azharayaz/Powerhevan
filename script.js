@@ -89,7 +89,7 @@ const toastJourney = document.getElementById('toast-journey');
 function showToast(toastEl) {
     toastEl.classList.add('show');
     toastEl.classList.remove('hide');
-    playPopupSound();
+    setTimeout(playPopupSound, 200);
     setTimeout(() => {
         toastEl.classList.remove('show');
         toastEl.classList.add('hide');
@@ -131,6 +131,26 @@ document.getElementById('modal-journey').querySelector('form').addEventListener(
     closeModal();
     e.target.reset();
     showToast(toastJourney);
+});
+
+// Contact form toast
+const toastContact = document.getElementById('toast-contact');
+document.querySelector('.contact-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = e.target.querySelector('input[type="text"]').value.trim() || 'Friend';
+    document.getElementById('toast-contact-name').textContent = name;
+    e.target.reset();
+    showToast(toastContact);
+});
+
+// Pricing buttons - open join modal with plan pre-selected
+document.querySelectorAll('.pricing-btn[data-plan]').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const plan = btn.dataset.plan;
+        const joinSelect = document.querySelector('#modal-join select');
+        joinSelect.value = plan;
+        openModal('modal-join');
+    });
 });
 
 // Floating particles background
