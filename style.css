@@ -883,3 +883,81 @@ body {
     .slide img { height: 200px; }
     .price { font-size: 2.5rem; }
 }
+
+/* Large screens */
+@media (min-width: 1440px) {
+    /* Hero */
+    .hero-line { font-size: 11rem; }
+    .hero-outline { -webkit-text-stroke: 4px #ff4d4d; }
+    .hero-tagline { font-size: 1.5rem; letter-spacing: 0.7rem; }
+    .hero-typewriter { font-size: 1.6rem; }
+    .hero-btn { padding: 1.3rem 3rem; font-size: 1.2rem; }
+
+    /* Section titles */
+    .section-title { font-size: 4rem; }
+    .products-title { font-size: 4rem; }
+
+    /* Stats */
+    .stats-grid { max-width: 1200px; }
+    .stat-number { font-size: 4.5rem; }
+    .stat-label { font-size: 1.3rem; }
+
+    /* Services */
+    .services-grid { max-width: 1200px; }
+    .service-icon { font-size: 4rem; }
+    .service-card h3 { font-size: 1.8rem; }
+    .service-card p { font-size: 1.3rem; }
+
+    /* Products */
+    .slider-container { max-width: 600px; }
+    .slide img { height: 450px; }
+    .slide h3 { font-size: 2rem; }
+    .slide p { font-size: 1.5rem; }
+    .slider-btn { width: 60px; height: 60px; font-size: 1.8rem; }
+
+    /* Why Choose Us */
+    .why-grid { max-width: 1100px; }
+    .why-card h3 { font-size: 1.8rem; }
+    .why-card p { font-size: 1.3rem; }
+    .why-card { padding: 2.5rem; }
+
+    /* Testimonials */
+    .testimonials-grid { max-width: 1200px; }
+    .testimonial-text { font-size: 1.3rem; }
+    .testimonial-card h4 { font-size: 1.3rem; }
+
+    /* Pricing */
+    .pricing-grid { max-width: 1200px; }
+    .pricing-card h3 { font-size: 2.2rem; }
+    .price { font-size: 4.5rem; }
+    .pricing-card ul li { font-size: 1.3rem; }
+    .pricing-btn { padding: 1rem 2.5rem; font-size: 1.3rem; }
+
+    /* Contact */
+    .contact-container { max-width: 1100px; }
+    .contact-form input,
+    .contact-form textarea { font-size: 1.2rem; padding: 1.2rem; }
+    .contact-btn { font-size: 1.3rem; }
+    .contact-info h3 { font-size: 1.8rem; }
+    .contact-info p { font-size: 1.3rem; }
+
+    /* Nav */
+    .header nav { padding: 0 4rem; }
+    .header nav img { width: 180px; height: 180px; }
+    .header nav ul li a { font-size: 1.8rem; }
+    .join-now-btn { padding: 0.9rem 2rem; font-size: 1.2rem; }
+}
+
+/* Extra large screens */
+@media (min-width: 1920px) {
+    .hero-line { font-size: 14rem; }
+    .hero-tagline { font-size: 1.8rem; }
+    .hero-typewriter { font-size: 1.8rem; }
+    .section-title { font-size: 5rem; }
+    .products-title { font-size: 5rem; }
+    .stat-number { font-size: 5.5rem; }
+    .price { font-size: 5rem; }
+    .header nav img { width: 200px; height: 200px; }
+    .header nav ul li a { font-size: 2rem; }
+    .slide img { height: 550px; }
+}
